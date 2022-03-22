@@ -2,11 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { NotFound } from './components/NotFound';
+import { ShowAnimal } from './components/ShowAnimal';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Routes>
+      <Route path='/'element={<App></App>}/>
+      <Route path='/animal/:id'element={<ShowAnimal></ShowAnimal>}/>
+      <Route path='*'element={<NotFound></NotFound>}/>
+    </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
