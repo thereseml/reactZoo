@@ -8,13 +8,13 @@ export const GetAnimals = () => {
 
     useEffect(() => {
         if(animal.length > 0) return;
-    })
 
-    // hämtar data/djur från api
+        // hämtar data/djur från api
         axios.get<IAnimals[]>('https://animals.azurewebsites.net/api/animals')
         .then(response => {
             setAnimal(response.data)
          });
+    })
 
         // loopar igenom listan med djur och skapar html till djuren
          let AnimalsFromApi = animal.map((animal: IAnimals) => {
@@ -27,13 +27,13 @@ export const GetAnimals = () => {
                     <Link to={animalLink}>{animal.name}</Link>
                     <p>{animal.shortDescription}</p>
                 </li>  
-                
+                 
             )
             });
             
             localStorage.setItem("Djurlista", JSON.stringify(animal))
             
-        return (<ul>{AnimalsFromApi}</ul>);
+        return <ul>{AnimalsFromApi}</ul>;
 
         
 
