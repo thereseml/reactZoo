@@ -7,7 +7,6 @@ export const GetAnimals = () => {
     const [animal, setAnimal] = useState<IAnimals[]>([]);
 
     useEffect(() => {
-        if(animal.length > 0) return;
 
         // hämtar data/djur från api
         axios.get<IAnimals[]>('https://animals.azurewebsites.net/api/animals')
